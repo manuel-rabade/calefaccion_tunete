@@ -1,1 +1,1 @@
-particle flash termometro_tuna" termometro_tuna.bin
+particle flash termometro_tunete termometro_tunete.bin

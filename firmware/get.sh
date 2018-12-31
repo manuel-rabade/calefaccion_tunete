@@ -1,2 +1,2 @@
-particle get termometro_tuna temperature
-particle get termometro_tuna error
+particle get termometro_tunete temperature
+particle get termometro_tunete error
