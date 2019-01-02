@@ -1,0 +1,6 @@
+<?php
+
+define('_PARTICLE_DEVICE_', '');
+define('_PARTICLE_TOKEN_', '');
+
+?>
