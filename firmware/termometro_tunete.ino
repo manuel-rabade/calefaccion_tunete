@@ -1,7 +1,7 @@
 const int TMP102_ADDRESS = 0x48;
 const int TMP102_BYTES = 2;
-const int TMP102_RETRY = 10;
-const int TMP102_DELAY = 3000; // ms
+const int TMP102_RETRY = 12;
+const int TMP102_DELAY = 250; // ms
 
 double temp = -0xff;
 int err = 1;
@@ -28,10 +28,11 @@ void setup() {
 
 void loop() {
   if (lastSample + SAMPLE_RATE < millis()) {
-    if(!update()) {
+    if (!update()) {
       sprintf(buffer, "%d", err);
       Particle.publish(publishError, buffer);
     }
+    lastSample = millis();
   }
   if (lastPublish + PUBLISH_RATE < millis()) {
     sprintf(buffer, "%.1f", temp);
