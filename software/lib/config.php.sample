@@ -3,4 +3,10 @@
 define('_PARTICLE_DEVICE_', '');
 define('_PARTICLE_TOKEN_', '');
 
+define('_LAT_', '');
+define('_LON_', '');
+define('_OPEN_WEATHER_MAP_KEY_', '');
+
+date_default_timezone_set('Mexico/General');
+
 ?>
