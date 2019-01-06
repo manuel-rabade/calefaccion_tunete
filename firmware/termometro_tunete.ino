@@ -1,18 +1,21 @@
 const int TMP102_ADDRESS = 0x48;
 const int TMP102_BYTES = 2;
-const int TMP102_RETRY = 3;
+const int TMP102_RETRY = 10;
+const int TMP102_DELAY = 3000; // ms
 
 double temp = -0xff;
 int err = 1;
-const unsigned long SAMPLE_RATE = 30000;
-unsigned long lastSample = 0;
-
-const char *publishEvent = "temperature/5min";
-const unsigned long PUBLISH_RATE = 300000;
-unsigned long lastPublish = 0;
 char buffer[8];
 
-const unsigned long BLINK_RATE = 1000;
+const unsigned long SAMPLE_RATE = 30000; // ms
+unsigned long lastSample = 0;
+const char *publishError = "temperature/error";
+
+const unsigned long PUBLISH_RATE = 300000; // ms
+unsigned long lastPublish = 0;
+const char *publishEvent = "temperature/5min";
+
+const unsigned long BLINK_RATE = 1000; // ms
 unsigned long lastBlink = 0;
 int led = LOW;
 
@@ -25,23 +28,9 @@ void setup() {
 
 void loop() {
   if (lastSample + SAMPLE_RATE < millis()) {
-    for (int r = 0; r < TMP102_RETRY; r++) {
-      if (Wire.isEnabled()) {
-        Wire.requestFrom(TMP102_ADDRESS, TMP102_BYTES);
-        if (Wire.available() == TMP102_BYTES) {
-          byte MSB = Wire.read();
-          byte LSB = Wire.read();
-          temp = ((( MSB << 8) | LSB) >> 4) * 0.0625;
-          err = 0;
-          break;
-        } else {
-          temp = -0xff;
-          err = 3;
-        }
-      } else {
-        temp = -0xff;
-        err = 2;
-      }
+    if(!update()) {
+      sprintf(buffer, "%d", err);
+      Particle.publish(publishError, buffer);
     }
   }
   if (lastPublish + PUBLISH_RATE < millis()) {
@@ -54,4 +43,27 @@ void loop() {
     led = !led;
     lastBlink = millis();
   }
+}
+
+int update() {
+  if (!Wire.isEnabled()) {
+    temp = -0xff;
+    err = 2;
+    return 0;
+  }
+  for (int r = 0; r < TMP102_RETRY; r++) {
+    Wire.requestFrom(TMP102_ADDRESS, TMP102_BYTES);
+    if (Wire.available() == TMP102_BYTES) {
+      byte MSB = Wire.read();
+      byte LSB = Wire.read();
+      temp = ((( MSB << 8) | LSB) >> 4) * 0.0625;
+      err = 0;
+      return 1;
+    } else {
+      temp = -0xff;
+      err = 3;
+    }
+    delay(TMP102_DELAY);
+  }
+  return 0;
 }
