@@ -1,8 +1,6 @@
 <?php
 
-define('_LIB_', dirname(__FILE__));
-
-require(_LIB_.'/config.php');
+require_once(dirname(__FILE__).'/config.php');
 
 function particleTemperature() {
     $res = array('error' => false, 'debug' => array());
