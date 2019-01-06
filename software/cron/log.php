@@ -16,8 +16,8 @@ $csv = fopen($path . date('m') . '.csv', 'a');
 $particle = particleTemperature();
 $owm = owmTemperature();
 
-fwrite($log, date('r : ') . json_encode($particle) . "\n");
-fwrite($log, date('r : ') . json_encode($owm) . "\n");
+fwrite($log, date('r -> ') . json_encode($particle) . "\n");
+fwrite($log, date('r -> ') . json_encode($owm) . "\n");
 
 fputcsv($csv, array(date('j'), date('H'), $particle['temperature'], $owm['temperature']));
 
