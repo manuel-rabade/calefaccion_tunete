@@ -2,7 +2,7 @@
 
 <?php
 
-define('_ROOT_', dirname(__FILE__, 3));
+define('_ROOT_', dirname(dirname(dirname(__FILE__))));
 require(_ROOT_.'/software/lib/particle.php');
 require(_ROOT_.'/software/lib/openweathermap.php');
 
