@@ -26,43 +26,39 @@ $owm = owmTemperature();
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-md-8 section">
+        <div class="col-12 col-lg-8">
           <h1>Sensores</h1>
           <div class="row">
-            <div class="col-xs-6 col-md-3">
-              Uno
+            <div class="col-6 col-md-3">
+              <h2>Tunete</h2>
+              <p class="sensor"><?php echo $particle['temperature']; ?> &deg;C</p>
             </div>
-            <div class="col-xs-6 col-md-3">
-              Dos
+            <div class="col-6 col-md-3">
+              <h2>Ambiente</h2>
+              <p class="sensor"><?php echo $owm['temperature']; ?> &deg;C</p>
             </div>
-            <div class="col-xs-6 col-md-3">
-              Tres
+            <div class="col-6 col-md-3">
+              <h2>?</h2>
+              <p class="sensor">-- &deg;C</p>
             </div>
-            <div class="col-xs-6 col-md-3">
-              Cuatro
+            <div class="col-6 col-md-3">
+              <h2>?</h2>
+              <p class="sensor">-- W</p>
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-12 col-lg-4">
           <h1>Actuadores</h1>
           <div class="row">
-            <div class="col-xs-6 col-md-6">
-              Uno
+            <div class="col-6 col-md-6">
+              <h2>?</h2>
+              <p class="sensor">--</p>
             </div>
-            <div class="col-xs-6 col-md-6">
-              Dos
+            <div class="col-6 col-md-6">
+              <h2>?</h2>
+              <p class="sensor">--</p>
             </div>
           </div>
-        </div>
-        <hr/>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-8">
-          <h1>Debug</h1>
-          <ul>
-            <li>Temperatura Tunete: <?php echo $particle['temperature']; ?> &deg;C</li>
-            <li>Temperatura Ambiente: <?php echo $owm['temperature']; ?> &deg;C</li>
-          </ul>
         </div>
       </div>
     </div>
