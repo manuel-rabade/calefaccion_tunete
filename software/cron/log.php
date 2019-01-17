@@ -3,6 +3,8 @@
 <?php
 
 define('_ROOT_', dirname(dirname(dirname(__FILE__))));
+require(_ROOT_.'/software/lib/config.php');
+require(_ROOT_.'/software/lib/secrets.php');
 require(_ROOT_.'/software/lib/particle.php');
 require(_ROOT_.'/software/lib/openweathermap.php');
 

@@ -1,7 +1,5 @@
 <?php
 
-require_once(dirname(__FILE__).'/config.php');
-
 function owmTemperature() {
     $res = array('error' => false, 'debug' => array());
 
