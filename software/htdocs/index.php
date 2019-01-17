@@ -21,47 +21,52 @@ $owm = owmTemperature();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="css/tunete.css" rel="stylesheet">
-    <title>Termometro Tunete</title>
+    <title>Calefacción Tunete</title>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-xl-8">
           <h1>Sensores</h1>
           <div class="row">
             <div class="col-6 col-md-3">
-              <h2>Tunete</h2>
+              <h2>Temperatura superior</h2>
               <p class="sensor"><?php echo $particle['temperature']; ?> &deg;C</p>
             </div>
             <div class="col-6 col-md-3">
-              <h2>Ambiente</h2>
-              <p class="sensor"><?php echo $owm['temperature']; ?> &deg;C</p>
-            </div>
-            <div class="col-6 col-md-3">
-              <h2>?</h2>
+              <h2>Temperatura inferior</h2>
               <p class="sensor">-- &deg;C</p>
             </div>
             <div class="col-6 col-md-3">
-              <h2>?</h2>
+              <h2>Temperatura ambiente</h2>
+              <p class="sensor"><?php echo $owm['temperature']; ?> &deg;C</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <h2>Potencia eléctrica</h2>
               <p class="sensor">-- W</p>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4">
-          <h1>Actuadores</h1>
+        <div class="col-12 col-xl-4">
+          <h1>Relevadores</h1>
           <div class="row">
             <div class="col-6 col-md-6">
-              <h2>?</h2>
+              <h2>Calentador de cerámica</h2>
               <p class="sensor">--</p>
             </div>
             <div class="col-6 col-md-6">
-              <h2>?</h2>
+              <h2>Placa térmica</h2>
               <p class="sensor">--</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <footer>
+      <div class="container">
+        <span class="text-muted"><a href="https://github.com/manuel-rabade/calefaccion_tunete">github.com/manuel-rabade/calefaccion_tunete</a></span>
+      </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
