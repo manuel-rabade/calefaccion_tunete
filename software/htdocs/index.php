@@ -43,7 +43,7 @@ $owm = owmTemperature();
             </div>
             <div class="col-6 col-md-3">
               <p class="gauge">-- W</p>
-              <h2>Potencia eléctrica</h2>
+              <h2>Potencia</h2>
             </div>
           </div>
         </div>
