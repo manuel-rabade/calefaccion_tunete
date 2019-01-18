@@ -30,20 +30,20 @@ $owm = owmTemperature();
           <h1>Sensores</h1>
           <div class="row">
             <div class="col-6 col-md-3">
+              <p class="gauge"><?php echo $particle['temperature']; ?> &deg;C</p>
               <h2>Temperatura superior</h2>
-              <p class="sensor"><?php echo $particle['temperature']; ?> &deg;C</p>
             </div>
             <div class="col-6 col-md-3">
+              <p class="gauge">-- &deg;C</p>
               <h2>Temperatura inferior</h2>
-              <p class="sensor">-- &deg;C</p>
             </div>
             <div class="col-6 col-md-3">
+              <p class="gauge"><?php echo $owm['temperature']; ?> &deg;C</p>
               <h2>Temperatura ambiente</h2>
-              <p class="sensor"><?php echo $owm['temperature']; ?> &deg;C</p>
             </div>
             <div class="col-6 col-md-3">
+              <p class="gauge">-- W</p>
               <h2>Potencia eléctrica</h2>
-              <p class="sensor">-- W</p>
             </div>
           </div>
         </div>
@@ -51,12 +51,12 @@ $owm = owmTemperature();
           <h1>Relevadores</h1>
           <div class="row">
             <div class="col-6 col-md-6">
+              <p class="gauge">--</p>
               <h2>Calentador de cerámica</h2>
-              <p class="sensor">--</p>
             </div>
             <div class="col-6 col-md-6">
+              <p class="gauge">--</p>
               <h2>Placa térmica</h2>
-              <p class="sensor">--</p>
             </div>
           </div>
         </div>
